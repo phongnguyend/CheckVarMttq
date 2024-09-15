@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
-var transactions = ReadDataByAddresses();
+var transactions = LoadTransactions();
 
 using (var dbct = new CheckVarMttqDbContext())
 {
@@ -14,7 +14,7 @@ using (var dbct = new CheckVarMttqDbContext())
 }
 
 
-static IEnumerable<Transaction> ReadDataByAddresses()
+static IEnumerable<Transaction> LoadTransactions()
 {
     var fileName = Path.Combine(@"C:\Users\Phong.NguyenDoan\Downloads\Thong_tin_ung_ho_qua_tsk_vcb_0011001932418_tu_01_09_den10_09_2024.xlsx");
     using var fileStream = File.OpenRead(fileName);
